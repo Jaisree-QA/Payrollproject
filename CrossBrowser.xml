@@ -1,0 +1,24 @@
+<suite name="PayrollProject" parallel="tests" threadcount="1">
+	<test name="Chrome test">
+		<listeners>
+			<listener class-name="utilities.RetryListener"/>
+<listener class-name="utilities.ExtenetReport" />
+		</listeners>		
+		<parameter name="browser" value="chrome">
+		</parameter>
+		<classes>
+			<class name="testCase.CrossbrowserTest"></class>
+			<class name="testCase.LoginPageTest"></class>
+			<class name="testCase.CreateclientTest"></class>
+			<class name="testCase.TimesheetTest"></class>		
+		</classes>	
+	</test>
+<!-- 	<test name="firefox test">
+		<parameter name="browser" value="firefox">
+		</parameter>
+		<classes>
+			<class name="testCase.CrossbrowserTest"></class>
+		</classes>
+	</test>  -->
+</suite>
+

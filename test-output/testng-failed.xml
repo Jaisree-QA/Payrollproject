@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [PayrollProject]">
+  <listeners>
+    <listener class-name="utilities.RetryListener"/>
+    <listener class-name="utilities.ExtenetReport"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="Chrome test(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="testCase.CreateclientTest">
+        <methods>
+          <include name="updateClient"/>
+          <include name="afterMethode"/>
+          <include name="beforeMethod"/>
+          <include name="viewClient"/>
+          <include name="updatingFeatures"/>
+        </methods>
+      </class> <!-- testCase.CreateclientTest -->
+    </classes>
+  </test> <!-- Chrome test(failed) -->
+</suite> <!-- Failed suite [PayrollProject] -->
