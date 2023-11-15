@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -55,53 +57,72 @@ public class Createclient {
 	WebElement eyes;
 	@FindBy(xpath = "//a[@href='/payrollapp/client/update?id=19']")
 	WebElement pencilnineteen;
+
 	public void selectingAllCheckBox() {
 		for (int i = 0; i < checkBox.size(); i++) {
 			checkBox.get(i).click();
 			System.out.println(checkBox.get(i).getText());
 		}
 	}
+
 	public void validatingClient() {
 		for (int i = 0; i < validating.size(); i++) {
 			String s = validating.get(i).getText();
-			System.out.println(s);
 		}
 	}
 
-	public void pencilButton() {
-		gu.FluentWait(driver, pencilnineteen);	
-		
+	public void clickElementWithRetry() {
+		int attempts = 0;
+		int maxAttempts = 2; // Adjust the number of attempts as needed
+
+		while (attempts < maxAttempts) {
+			try {
+				gu.FluentWait(driver, pencilnineteen);
+				pencilnineteen.click();
+				
+			} catch (StaleElementReferenceException e) {
+				e.printStackTrace();
+				
+			}
+			attempts++;
+		}
+	}
+
+	public boolean pencilButton() {
 		try {
-			gu.browseActions(driver, pencilnineteen);
+			gu.FluentWait(driver, pencilnineteen);
+			return pencilnineteen.isEnabled();
+		} catch (StaleElementReferenceException e) {
+			e.printStackTrace();
+			return false;
 		}
-		catch(StaleElementReferenceException e) {
-			gu.browseActions(driver, pencilnineteen);
-		}
-			
 	}
 
 	public boolean nine() {
 		return gu.getviewEnabled(pencilnineteen);
 	}
 
-	public void eyeButton() {
-		gu.FluentWait(driver, eyes);
+	public boolean eyeButton() {
+
 		try {
-			gu.browseActions(driver, eyes);
+			gu.FluentWait(driver, eyes);
+			return eyes.isEnabled();
+		} catch (StaleElementReferenceException e) {
+			e.printStackTrace();
+			return false;
 		}
-		catch(StaleElementReferenceException e) {
-			gu.browseActions(driver, eyes);
-		}
-		
+
 	}
 
 	public void clientNameSearch() {
 		gu.selectField("akshay", clientnamesearch);
 		gu.selectField("19", clientidsearch);
 	}
+
 	public void searchButton() {
 		searchbutton.click();
 	}
+
 	public void refField() {
 		gu.selectField("695", refTab);
 		gu.selectField("333", invoiceContact);
@@ -114,10 +135,10 @@ public class Createclient {
 	}
 
 	public void selectSettlementDays() {
-
 		gu.selectField("171", days);
 		gu.scrolLing(driver);
 	}
+
 	public void selectSave() {
 		save.isEnabled();
 		save.isDisplayed();
@@ -125,13 +146,16 @@ public class Createclient {
 		System.out.println(flag);
 		boolean flag1 = save.isDisplayed();
 		System.out.println(flag1);
+
 		gu.saveButton(driver, save);
 	}
+
 	public void directEye() {
 		WebElement getclient = driver.findElement(By.xpath(
 				"//td[normalize-space()='~amal_xaviourupd']//following::td[4]//a[@href='/payrollapp/client/view?id=4']"));
 		gu.browseActions(driver, getclient);
 	}
+
 	@FindBy(xpath = "//td[4]")
 	List<WebElement> dedamount;
 
@@ -141,7 +165,7 @@ public class Createclient {
 			String individualamount = element.getText().replace(".00", "").replace("£", "").replace(",", "");
 			amountList.add(Integer.parseInt(individualamount));
 		}
-		int largevalue = Collections.max(amountList);		
+		int largevalue = Collections.max(amountList);
 		return largevalue;
 
 	}

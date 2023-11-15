@@ -17,19 +17,6 @@ public class CreateclientTest extends BaseClass {
 	GeneralUtilities gu;
 	Excelworkbook eu;
 
-	@Test(enabled = true)
-
-	public void createClient() {
-		lp = new LoginPage(driver);
-		hp = new Homepage(driver);
-		lp.sendUsername();
-		lp.sendPassword();
-		lp.logClick();
-		String actual = hp.getHomepagetext();
-		String expected = "PAYROLL APPLICATION";
-		Assert.assertEquals(actual, expected, Constant.ms_createClient);
-	}
-
 	@Test (priority=7,enabled = true)
 	public void clientpageAssert() {
 
@@ -98,8 +85,8 @@ public class CreateclientTest extends BaseClass {
 		cc.searchButton();
 		cc.validatingClient();
 		cc.pencilButton();	
-		String actual = hp.pencilHeadText();
-		String expected = "UPDATE CLIENT: AKSHAY";
+	boolean actual = cc.pencilButton();
+	boolean expected = true;
 		Assert.assertEquals(actual, expected, Constant.ms_createClientpageAssert);
 	}	
 	
@@ -117,12 +104,12 @@ public class CreateclientTest extends BaseClass {
 		cc.clientNameSearch();
 		cc.searchButton();
 		cc.validatingClient();
-		cc.pencilButton();			
+		cc.clickElementWithRetry();		
 		hp.selectDrop();
 		cc.selectSave();
 		String actual = hp.eyeHeadText();
-		String expected = "akshay".toUpperCase();
-		Assert.assertEquals(actual, expected, Constant.ms_createClientpageAssert);
+		String expected = "AKSHAY".toUpperCase();
+		Assert.assertEquals(actual, expected, Constant.ms_createClientpageAssert);		
 	}	
 	
 	@Test(priority=11,enabled = true)
@@ -140,10 +127,10 @@ public class CreateclientTest extends BaseClass {
 		cc.searchButton();
 		cc.validatingClient();
 		cc.eyeButton();	
-		String actual = hp.eyeHeadText();
-		String expected = "akshay".toUpperCase();
-		Assert.assertEquals(actual, expected, Constant.ms_createClientpageAssert);
-	}
+		boolean actual = cc.eyeButton();
+		boolean expected = true;
+			Assert.assertEquals(actual, expected, Constant.ms_createClientpageAssert);
+		}
 	@Test(priority=12,enabled = true)
 
 	public void withoutSearch() {

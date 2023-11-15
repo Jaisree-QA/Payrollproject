@@ -5,6 +5,7 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Random;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -55,9 +56,7 @@ public class GeneralUtilities {
 	public void scrolLing(WebDriver driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,4500)");		//scroll code
-
 	}
-
 	public void saveButton(WebDriver driver, WebElement element) {
 
 		// Create a JavaScriptExecutor instance
@@ -65,6 +64,13 @@ public class GeneralUtilities {
 
 		// Use JavaScriptExecutor to click the element
 		jsExecutor.executeScript("arguments[0].click();", element);
+	}
+	
+	public void pageup(WebDriver driver) {
+		// Assuming 'driver' is your WebDriver instance
+		Actions actions = new Actions(driver);
+		actions.sendKeys(Keys.PAGE_UP).perform();
+
 	}
 	public void explicitWait(WebDriver driver) {
 

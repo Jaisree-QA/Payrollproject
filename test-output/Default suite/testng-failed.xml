@@ -6,8 +6,15 @@
       <class name="testCase.CreateclientTest">
         <methods>
           <include name="updateClient"/>
+          <include name="clientDetails"/>
+          <include name="createClientpageAssert"/>
           <include name="afterMethode"/>
+          <include name="deductionPage"/>
           <include name="beforeMethod"/>
+          <include name="withoutSearch"/>
+          <include name="clientpageAssert"/>
+          <include name="viewClient"/>
+          <include name="updatingFeatures"/>
         </methods>
       </class> <!-- testCase.CreateclientTest -->
     </classes>
