@@ -10,13 +10,18 @@
     <classes>
       <class name="testCase.CreateclientTest">
         <methods>
-          <include name="updateClient"/>
           <include name="afterMethode"/>
           <include name="beforeMethod"/>
           <include name="viewClient"/>
-          <include name="updatingFeatures"/>
         </methods>
       </class> <!-- testCase.CreateclientTest -->
+      <class name="testCase.TimesheetTest">
+        <methods>
+          <include name="afterMethode"/>
+          <include name="beforeMethod"/>
+          <include name="cancelgenerateInvoice"/>
+        </methods>
+      </class> <!-- testCase.TimesheetTest -->
     </classes>
   </test> <!-- Chrome test(failed) -->
 </suite> <!-- Failed suite [PayrollProject] -->

@@ -142,11 +142,6 @@ public class Createclient {
 	public void selectSave() {
 		save.isEnabled();
 		save.isDisplayed();
-		boolean flag = save.isEnabled();
-		System.out.println(flag);
-		boolean flag1 = save.isDisplayed();
-		System.out.println(flag1);
-
 		gu.saveButton(driver, save);
 	}
 

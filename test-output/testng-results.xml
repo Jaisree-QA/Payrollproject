@@ -1,165 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-15T14:12:49 IST" name="Default suite" finished-at="2023-11-15T14:14:49 IST" duration-ms="119892">
+  <suite started-at="2023-11-15T22:53:54 IST" name="PayrollProject" finished-at="2023-11-15T22:55:44 IST" duration-ms="110053">
     <groups>
     </groups>
-    <test started-at="2023-11-15T14:12:49 IST" name="Default test" finished-at="2023-11-15T14:14:49 IST" duration-ms="119892">
-      <class name="testCase.CreateclientTest">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:12:49 IST" name="beforeMethod" finished-at="2023-11-15T14:12:58 IST" duration-ms="9132" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="createClientpageAssert()[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:12:58 IST" name="createClientpageAssert" finished-at="2023-11-15T14:13:09 IST" duration-ms="10605" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createClientpageAssert -->
-        <test-method is-config="true" signature="afterMethode(org.testng.ITestResult)[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:13:09 IST" name="afterMethode" finished-at="2023-11-15T14:13:11 IST" duration-ms="2335" status="PASS">
+    <test started-at="2023-11-15T22:53:54 IST" name="Chrome test" finished-at="2023-11-15T22:54:54 IST" duration-ms="59300">
+      <class name="testCase.CrossbrowserTest">
+        <test-method is-config="true" signature="CrossTest(java.lang.String)[pri:0, instance:testCase.CrossbrowserTest@b9b00e0]" started-at="2023-11-15T22:53:55 IST" name="CrossTest" finished-at="2023-11-15T22:54:08 IST" duration-ms="13063" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=createClientpageAssert status=SUCCESS method=CreateclientTest.createClientpageAssert()[pri:0, instance:testCase.CreateclientTest@273e7444] output={null}]]]>
+                <![CDATA[chrome]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterMethode -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:13:11 IST" name="beforeMethod" finished-at="2023-11-15T14:13:22 IST" duration-ms="10974" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="clientpageAssert()[pri:7, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:13:22 IST" name="clientpageAssert" finished-at="2023-11-15T14:13:26 IST" duration-ms="4246" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- clientpageAssert -->
-        <test-method is-config="true" signature="afterMethode(org.testng.ITestResult)[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:13:26 IST" name="afterMethode" finished-at="2023-11-15T14:13:27 IST" duration-ms="322" status="PASS">
+        </test-method> <!-- CrossTest -->
+        <test-method signature="CrossTest(java.lang.String)[pri:0, instance:testCase.CrossbrowserTest@b9b00e0]" started-at="2023-11-15T22:54:08 IST" name="CrossTest" finished-at="2023-11-15T22:54:39 IST" duration-ms="31301" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=clientpageAssert status=SUCCESS method=CreateclientTest.clientpageAssert()[pri:7, instance:testCase.CreateclientTest@273e7444] output={null}]]]>
+                <![CDATA[chrome]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterMethode -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:13:27 IST" name="beforeMethod" finished-at="2023-11-15T14:13:34 IST" duration-ms="6850" status="PASS">
+        </test-method> <!-- CrossTest -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testCase.CrossbrowserTest@b9b00e0]" started-at="2023-11-15T22:54:39 IST" name="afterMethod" finished-at="2023-11-15T22:54:54 IST" duration-ms="14315" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="clientDetails()[pri:8, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:13:34 IST" name="clientDetails" finished-at="2023-11-15T14:13:43 IST" duration-ms="9232" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- clientDetails -->
-        <test-method is-config="true" signature="afterMethode(org.testng.ITestResult)[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:13:43 IST" name="afterMethode" finished-at="2023-11-15T14:13:43 IST" duration-ms="535" status="PASS">
+        </test-method> <!-- afterMethod -->
+      </class> <!-- testCase.CrossbrowserTest -->
+    </test> <!-- Chrome test -->
+    <test started-at="2023-11-15T22:53:54 IST" name="firefox test" finished-at="2023-11-15T22:55:44 IST" duration-ms="110053">
+      <class name="testCase.CrossbrowserTest">
+        <test-method is-config="true" signature="CrossTest(java.lang.String)[pri:0, instance:testCase.CrossbrowserTest@7ef82753]" started-at="2023-11-15T22:53:55 IST" name="CrossTest" finished-at="2023-11-15T22:55:23 IST" duration-ms="87676" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=clientDetails status=SUCCESS method=CreateclientTest.clientDetails()[pri:8, instance:testCase.CreateclientTest@273e7444] output={null}]]]>
+                <![CDATA[firefox]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterMethode -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:13:43 IST" name="beforeMethod" finished-at="2023-11-15T14:13:50 IST" duration-ms="7072" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="updateClient()[pri:9, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:13:50 IST" name="updateClient" finished-at="2023-11-15T14:13:58 IST" duration-ms="7542" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- updateClient -->
-        <test-method is-config="true" signature="afterMethode(org.testng.ITestResult)[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:13:58 IST" name="afterMethode" finished-at="2023-11-15T14:13:58 IST" duration-ms="359" status="PASS">
+        </test-method> <!-- CrossTest -->
+        <test-method signature="CrossTest(java.lang.String)[pri:0, instance:testCase.CrossbrowserTest@7ef82753]" started-at="2023-11-15T22:55:23 IST" name="CrossTest" finished-at="2023-11-15T22:55:40 IST" duration-ms="17714" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=updateClient status=SUCCESS method=CreateclientTest.updateClient()[pri:9, instance:testCase.CreateclientTest@273e7444] output={null}]]]>
+                <![CDATA[firefox]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterMethode -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:13:58 IST" name="beforeMethod" finished-at="2023-11-15T14:14:06 IST" duration-ms="7651" status="PASS">
+        </test-method> <!-- CrossTest -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testCase.CrossbrowserTest@7ef82753]" started-at="2023-11-15T22:55:40 IST" name="afterMethod" finished-at="2023-11-15T22:55:44 IST" duration-ms="4057" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="updatingFeatures()[pri:10, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:14:06 IST" name="updatingFeatures" finished-at="2023-11-15T14:14:13 IST" duration-ms="7433" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- updatingFeatures -->
-        <test-method is-config="true" signature="afterMethode(org.testng.ITestResult)[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:14:13 IST" name="afterMethode" finished-at="2023-11-15T14:14:14 IST" duration-ms="335" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=updatingFeatures status=SUCCESS method=CreateclientTest.updatingFeatures()[pri:10, instance:testCase.CreateclientTest@273e7444] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethode -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:14:14 IST" name="beforeMethod" finished-at="2023-11-15T14:14:21 IST" duration-ms="7649" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="viewClient()[pri:11, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:14:21 IST" name="viewClient" finished-at="2023-11-15T14:14:26 IST" duration-ms="4370" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewClient -->
-        <test-method is-config="true" signature="afterMethode(org.testng.ITestResult)[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:14:26 IST" name="afterMethode" finished-at="2023-11-15T14:14:26 IST" duration-ms="184" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=viewClient status=SUCCESS method=CreateclientTest.viewClient()[pri:11, instance:testCase.CreateclientTest@273e7444] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethode -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:14:26 IST" name="beforeMethod" finished-at="2023-11-15T14:14:33 IST" duration-ms="7010" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="withoutSearch()[pri:12, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:14:33 IST" name="withoutSearch" finished-at="2023-11-15T14:14:37 IST" duration-ms="4235" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- withoutSearch -->
-        <test-method is-config="true" signature="afterMethode(org.testng.ITestResult)[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:14:37 IST" name="afterMethode" finished-at="2023-11-15T14:14:37 IST" duration-ms="213" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=withoutSearch status=SUCCESS method=CreateclientTest.withoutSearch()[pri:12, instance:testCase.CreateclientTest@273e7444] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethode -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:14:37 IST" name="beforeMethod" finished-at="2023-11-15T14:14:44 IST" duration-ms="6782" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="deductionPage()[pri:13, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:14:44 IST" name="deductionPage" finished-at="2023-11-15T14:14:49 IST" duration-ms="4401" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deductionPage -->
-        <test-method is-config="true" signature="afterMethode(org.testng.ITestResult)[pri:0, instance:testCase.CreateclientTest@273e7444]" started-at="2023-11-15T14:14:49 IST" name="afterMethode" finished-at="2023-11-15T14:14:49 IST" duration-ms="254" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=deductionPage status=SUCCESS method=CreateclientTest.deductionPage()[pri:13, instance:testCase.CreateclientTest@273e7444] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethode -->
-      </class> <!-- testCase.CreateclientTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- afterMethod -->
+      </class> <!-- testCase.CrossbrowserTest -->
+    </test> <!-- firefox test -->
+  </suite> <!-- PayrollProject -->
 </testng-results>
