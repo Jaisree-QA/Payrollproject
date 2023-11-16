@@ -48,6 +48,8 @@ public class GeneralUtilities {
 	        
 	        element.sendKeys(value);
 	    }
+	 
+	 
 	public void browseActions(WebDriver driver, WebElement element) {
 
 		Actions obj = new Actions(driver);

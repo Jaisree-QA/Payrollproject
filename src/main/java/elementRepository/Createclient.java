@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -16,7 +14,7 @@ import utilities.GeneralUtilities;
 
 public class Createclient {
 	WebDriver driver;
-	GeneralUtilities gu = new GeneralUtilities();
+	GeneralUtilities utilities = new GeneralUtilities();
 
 	public Createclient(WebDriver driver) {
 		this.driver = driver;
@@ -58,6 +56,13 @@ public class Createclient {
 	@FindBy(xpath = "//a[@href='/payrollapp/client/update?id=19']")
 	WebElement pencilnineteen;
 
+	public void senduserDetails(String clientName, String clientId) {
+
+		clientnamesearch.sendKeys(clientName);
+		clientidsearch.sendKeys(clientId);
+	}
+
+	
 	public void selectingAllCheckBox() {
 		for (int i = 0; i < checkBox.size(); i++) {
 			checkBox.get(i).click();
@@ -77,7 +82,7 @@ public class Createclient {
 
 		while (attempts < maxAttempts) {
 			try {
-				gu.FluentWait(driver, pencilnineteen);
+				utilities.FluentWait(driver, pencilnineteen);
 				pencilnineteen.click();
 				
 			} catch (StaleElementReferenceException e) {
@@ -90,7 +95,7 @@ public class Createclient {
 
 	public boolean pencilButton() {
 		try {
-			gu.FluentWait(driver, pencilnineteen);
+			utilities.FluentWait(driver, pencilnineteen);
 			return pencilnineteen.isEnabled();
 		} catch (StaleElementReferenceException e) {
 			e.printStackTrace();
@@ -99,13 +104,13 @@ public class Createclient {
 	}
 
 	public boolean nine() {
-		return gu.getviewEnabled(pencilnineteen);
+		return utilities.getviewEnabled(pencilnineteen);
 	}
 
 	public boolean eyeButton() {
 
 		try {
-			gu.FluentWait(driver, eyes);
+			utilities.FluentWait(driver, eyes);
 			return eyes.isEnabled();
 		} catch (StaleElementReferenceException e) {
 			e.printStackTrace();
@@ -115,8 +120,8 @@ public class Createclient {
 	}
 
 	public void clientNameSearch() {
-		gu.selectField("akshay", clientnamesearch);
-		gu.selectField("19", clientidsearch);
+		utilities.selectField("akshay", clientnamesearch);
+		utilities.selectField("19", clientidsearch);
 	}
 
 	public void searchButton() {
@@ -124,31 +129,31 @@ public class Createclient {
 	}
 
 	public void refField() {
-		gu.selectField("695", refTab);
-		gu.selectField("333", invoiceContact);
-		gu.selectField("33-333-1212", phone);
-		gu.selectField("david", name);
-		gu.selectField("W91p5nk", postalcode);
-		gu.selectField("92 Arconagh new bridgeRoad Naas", clientaddress);
-		gu.selectField("knkcka@yopmail.com", email);
-		gu.selectField("company3", reg);
+		utilities.selectField("695", refTab);
+		utilities.selectField("333", invoiceContact);
+		utilities.selectField("33-333-1212", phone);
+		utilities.selectField("david", name);
+		utilities.selectField("W91p5nk", postalcode);
+		utilities.selectField("92 Arconagh new bridgeRoad Naas", clientaddress);
+		utilities.selectField("knkcka@yopmail.com", email);
+		utilities.selectField("company3", reg);
 	}
 
 	public void selectSettlementDays() {
-		gu.selectField("171", days);
-		gu.scrolLing(driver);
+		utilities.selectField("171", days);
+		utilities.scrolLing(driver);
 	}
 
 	public void selectSave() {
 		save.isEnabled();
 		save.isDisplayed();
-		gu.saveButton(driver, save);
+		utilities.saveButton(driver, save);
 	}
 
 	public void directEye() {
 		WebElement getclient = driver.findElement(By.xpath(
 				"//td[normalize-space()='~amal_xaviourupd']//following::td[4]//a[@href='/payrollapp/client/view?id=4']"));
-		gu.browseActions(driver, getclient);
+		utilities.browseActions(driver, getclient);
 	}
 
 	@FindBy(xpath = "//td[4]")
@@ -164,4 +169,5 @@ public class Createclient {
 		return largevalue;
 
 	}
+	
 }

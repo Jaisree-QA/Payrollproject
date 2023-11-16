@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 
 public class CrossbrowserTest {
 	WebDriver driver;
+
 	@BeforeMethod(alwaysRun = true)
 	@Parameters("browser")
 	@Test
@@ -20,10 +21,9 @@ public class CrossbrowserTest {
 			System.setProperty("webdriver.chrome.driver",
 					System.getProperty("user.dir") + "\\src\\main\\resources\\Driver\\chromedriver.exe");
 			driver = new ChromeDriver();
-		} 
-else if (browserName.equals("firefox")) {
-System.setProperty("webdriver.gecko.driver",
-System.getProperty("user.dir") + "\\src\\main\\resources\\Driver\\geckodriver.exe");
+		} else if (browserName.equals("firefox")) {
+			System.setProperty("webdriver.gecko.driver",
+					System.getProperty("user.dir") + "\\src\\main\\resources\\Driver\\geckodriver.exe");
 
 			driver = new FirefoxDriver();
 		}
@@ -35,6 +35,6 @@ System.getProperty("user.dir") + "\\src\\main\\resources\\Driver\\geckodriver.ex
 
 	@AfterMethod(alwaysRun = true) // to run always
 	public void afterMethod() {
-		driver.close();
+		driver.quit();
 	}
 }

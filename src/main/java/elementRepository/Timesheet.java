@@ -1,4 +1,5 @@
 package elementRepository;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
@@ -11,7 +12,7 @@ import utilities.GeneralUtilities;
 public class Timesheet {
 
 	WebDriver driver;
-	GeneralUtilities gu = new GeneralUtilities();
+	GeneralUtilities utilities = new GeneralUtilities();
 
 	public Timesheet(WebDriver driver) {
 		this.driver = driver;
@@ -47,34 +48,37 @@ public class Timesheet {
 	List<WebElement> tablecol;
 
 	public boolean wholeTable() {
-		
-		for (int i = 0; i < tablecol.size(); i++) {			
-			for (int j = 0; j < tablerow.size(); j++) {				
-String tableXpath = "//table[@class='table table-striped table-bordered']//tbody//tr[" + (i + 1)
+
+		for (int i = 0; i < tablecol.size(); i++) {
+			for (int j = 0; j < tablerow.size(); j++) {
+				String tableXpath = "//table[@class='table table-striped table-bordered']//tbody//tr[" + (i + 1)
 						+ "]//td[" + (j + 1) + "]";
-WebElement fullTable = driver.findElement(By.xpath(tableXpath));
-fullTable.getText();
+				WebElement fullTable = driver.findElement(By.xpath(tableXpath));
+				fullTable.getText();
 			}
 		}
 		return true;
 	}
-	public  List<String>crossCheckElement() {
-		 List<String> valuesList = new ArrayList<>();
+
+	public List<String> crossCheckElement() {
+		List<String> valuesList = new ArrayList<>();
 		for (int i = 0; i < tablecol.size(); i++) {
 			if (tablecol.get(i).getText().equals("343445")) {
-String locator = "//table[@class='table table-striped table-bordered']//tbody//tr[" + (i + 1)+ "]//td[2]";
-		WebElement values = driver.findElement(By.xpath(locator));
-valuesList.add(values.getText());
-	        }
-	    }
-	    return valuesList;
+				String locator = "//table[@class='table table-striped table-bordered']//tbody//tr[" + (i + 1)
+						+ "]//td[2]";
+				WebElement values = driver.findElement(By.xpath(locator));
+				valuesList.add(values.getText());
+			}
+		}
+		return valuesList;
 	}
+
 	public void browseTimesheet() {
 		browseclick.click();
 	}
 
 	public void browseFilepath() {
-		gu.selectField("C:\\Users\\user\\Pictures\\newyear2023.jpg", browseclick);
+		utilities.selectField("C:\\Users\\user\\Pictures\\newyear2023.jpg", browseclick);
 	}
 
 	public void uploadButton() {
@@ -96,6 +100,4 @@ valuesList.add(values.getText());
 	public void generateTable() {
 		generatetable.click();
 	}
-		    }
-
-	
+}

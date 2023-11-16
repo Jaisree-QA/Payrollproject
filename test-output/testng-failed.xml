@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite parallel="tests" name="Failed suite [PayrollProject]">
-  <listeners>
-    <listener class-name="utilities.RetryListener"/>
-    <listener class-name="utilities.ExtenetReport"/>
-  </listeners>
-  <test thread-count="5" parallel="tests" name="Chrome test(failed)">
-    <parameter name="browser" value="chrome"/>
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCase.CreateclientTest">
-        <methods>
-          <include name="afterMethode"/>
-          <include name="beforeMethod"/>
-          <include name="viewClient"/>
-        </methods>
-      </class> <!-- testCase.CreateclientTest -->
       <class name="testCase.TimesheetTest">
         <methods>
           <include name="afterMethode"/>
           <include name="beforeMethod"/>
-          <include name="cancelgenerateInvoice"/>
+          <include name="pdfAttachinDeduction"/>
         </methods>
       </class> <!-- testCase.TimesheetTest -->
     </classes>
-  </test> <!-- Chrome test(failed) -->
-</suite> <!-- Failed suite [PayrollProject] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

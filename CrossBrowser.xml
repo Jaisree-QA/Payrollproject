@@ -8,17 +8,16 @@
 		</parameter>
 		<classes>
 			<class name="testCase.CrossbrowserTest"></class>
-			<class name="testCase.LoginPageTest"></class>
+		 	<class name="testCase.LoginPageTest"></class>
 		 	<class name="testCase.CreateclientTest"></class>
-			<class name="testCase.TimesheetTest"></class> -->
+			<class name="testCase.TimesheetTest"></class> 	
 		</classes>
 	</test>
- <!--	<test name="firefox test">
+ 	<test name="firefox test">
 		<parameter name="browser" value="firefox">
 		</parameter>
 		<classes>
 			<class name="testCase.CrossbrowserTest"></class>
 		</classes>
-	</test>  -->
+	</test>  
 </suite>
-

@@ -3,20 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCase.CreateclientTest">
+      <class name="testCase.TimesheetTest">
         <methods>
-          <include name="updateClient"/>
-          <include name="clientDetails"/>
-          <include name="createClientpageAssert"/>
           <include name="afterMethode"/>
-          <include name="deductionPage"/>
           <include name="beforeMethod"/>
-          <include name="withoutSearch"/>
-          <include name="clientpageAssert"/>
-          <include name="viewClient"/>
-          <include name="updatingFeatures"/>
+          <include name="pdfAttachinDeduction"/>
         </methods>
-      </class> <!-- testCase.CreateclientTest -->
+      </class> <!-- testCase.TimesheetTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

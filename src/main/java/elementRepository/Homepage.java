@@ -1,5 +1,8 @@
 package elementRepository;
 
+import java.util.Set;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +13,7 @@ import utilities.GeneralUtilities;
 
 public class Homepage {
 	WebDriver driver;
-	GeneralUtilities gu = new GeneralUtilities();
+	GeneralUtilities utilities = new GeneralUtilities();
 
 	public Homepage(WebDriver driver) {
 		this.driver = driver;
@@ -51,16 +54,16 @@ public class Homepage {
 	WebElement vatrate;
 
 	public String clienteyeText() {
-		return gu.getElementtext(clienteye);
+		return utilities.getElementtext(clienteye);
 	}
 
 	public String pencilHeadText() {
 
-		return gu.getElementtext(pencilheading);
+		return utilities.getElementtext(pencilheading);
 	}
 
 	public String eyeHeadText() {
-		return gu.getElementtext(eyeheading);
+		return utilities.getElementtext(eyeheading);
 	}
 
 	public void selectDrop() {
@@ -96,6 +99,9 @@ public class Homepage {
 	WebElement invoiceTab;
 	@FindBy(xpath = "//a[@href='/payrollapp/timesheet/approvedlist']")
 	WebElement approvedtimesheet;
+
+	@FindBy(xpath = "//tr[1]//td//span[@class='glyphicon glyphicon-paperclip']")
+	WebElement pdf;
 
 	public void approvedTimesheetTag() {
 		approvedtimesheet.click();
@@ -134,30 +140,52 @@ public class Homepage {
 	}
 
 	public String getdavidtext() {
-		return gu.getElementtext(davidheading);
+		return utilities.getElementtext(davidheading);
 	}
 
 	public String getHomepagetext() {
-		return gu.getElementtext(heading);
+		return utilities.getElementtext(heading);
 	}
 
 	public String getHomepagetexts() {
-		return gu.getElementtext(Incorrectheading);
+		return utilities.getElementtext(Incorrectheading);
 	}
 
 	public String getClientpagetext() {
-		return gu.getElementtext(clientheading);
+		return utilities.getElementtext(clientheading);
 	}
 
 	public String getCreateclientpagetexts() {
-		return gu.getElementtext(createclientheading);
+		return utilities.getElementtext(createclientheading);
 	}
 
 	public String getTimesheetHeading() {
-		return gu.getElementtext(timesheetheading);
+		return utilities.getElementtext(timesheetheading);
 	}
 
 	public String getCreateTimesheetHeading() {
-		return gu.getElementtext(createtimesheetheading);
+		return utilities.getElementtext(createtimesheetheading);
 	}
+	public void windowHandling() {
+		payslipTab.click();
+		pdf.click();
+		String parentWindow = driver.getWindowHandle();
+		//System.out.println(parentWindow);
+
+		Set<String> allWindows = driver.getWindowHandles();// include 2 tabs
+		for (String childWindow : allWindows) {
+			if (!parentWindow.equals(childWindow)) {
+				driver.switchTo().window(childWindow);
+			//	System.out.println(childWindow);
+
+				WebElement pageText = driver.findElement(By.xpath("//h1[text()='Error (#64)']"));
+				pageText.getText();
+				driver.close();
+			}
+		}
+
+		driver.switchTo().window(parentWindow);
+
+	}
+
 }

@@ -1,6 +1,7 @@
 package testCase;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import utilities.ScreenShotCapture;
 
@@ -18,7 +19,7 @@ public class BaseClass {
 	WebDriver driver;
 	ScreenShotCapture sc;
 	public static Properties pro;
-
+@Test
 	public static void testBasic() throws IOException {
 
 		pro = new Properties(); // for url pulling
@@ -28,15 +29,9 @@ public class BaseClass {
 	}
 	
 	@BeforeMethod(alwaysRun = true)
+
 	
-	public void beforeMethod() {
-	//	System.setProperty("webdriver.chrome.driver",
-	//			"C:\\Users\\user\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-		
-	/*	System.setProperty(pro.getProperty("chromeDriver"),
-				System.getProperty("user.dir") + "\\src\\main\\resources\\Driver\\chromedriver.exe");
-		*/
-		
+	public void beforeMethod() {		
 		try {
 			testBasic(); // for loading method
 		} catch (IOException e) {
@@ -44,7 +39,7 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 		System.setProperty(pro.getProperty("ChromeDriver"),			
-				System.getProperty("user.dir") + "\\src\\main\\resources\\Driver\\chromedriver.exe");
+				System.getProperty("user.dir") + "\\src\\main\\resources\\Driver\\config.properties");
 		
 		driver = new ChromeDriver();
 
@@ -62,6 +57,3 @@ public class BaseClass {
 	 		driver.close(); 
 	 	}
 }
-
-// file upload - dynamic table - assertion
-//
