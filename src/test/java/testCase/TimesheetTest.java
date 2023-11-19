@@ -2,15 +2,14 @@ package testCase;
 
 import java.util.Arrays;
 import java.util.Collection;
-
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import constant.Constant;
 import elementRepository.Homepage;
 import elementRepository.LoginPage;
 import elementRepository.Timesheet;
+import utilities.ConfigFileReader;
 import utilities.GeneralUtilities;
 
 public class TimesheetTest extends BaseClass {
@@ -18,6 +17,7 @@ public class TimesheetTest extends BaseClass {
 	Homepage home;
 	Timesheet timesheet;
 	GeneralUtilities utilities;
+	ConfigFileReader cf;
 
 	@Test(priority = 6, enabled = true)
 	public void timesheetPageTitleCheck() {
@@ -28,7 +28,7 @@ public class TimesheetTest extends BaseClass {
 		login.logClick();
 		home.timesheetTag();
 		String actual = home.getTimesheetHeading();
-		String expected = "TIMESHEETS";
+		String expected = login.expectedAssert(1, 1);
 		Assert.assertEquals(actual, expected, Constant.ms_acceptGeneratePayslip);
 	}
 
@@ -47,13 +47,13 @@ public class TimesheetTest extends BaseClass {
 		utilities.explicitWait(driver);
 		utilities.alertText(driver);
 		String actual = utilities.alertText(driver);
-		String expected = "Invoice generated!!!";
+		String expected = login.expectedAssert(0, 1);
 		Assert.assertEquals(actual, expected, Constant.ms_acceptGeneratePayslip);
 		utilities.alertAccept(driver);
 	}
 
-	@Test(priority = 3, enabled = true)
-	public void cancelgenerateInvoiceAlert() {// alert handling
+	@Test(enabled = true)
+	public void cancelgenerateInvoiceAlert() {
 		login = new LoginPage(driver);
 		home = new Homepage(driver);
 		timesheet = new Timesheet(driver);
@@ -64,18 +64,20 @@ public class TimesheetTest extends BaseClass {
 		home.timesheetTag();
 		timesheet.generateInvoice();
 		String actual = utilities.alertText(driver);
-		String expected = "Are you sure you want to generate invoice?";
-		Assert.assertEquals(actual, expected, Constant.ms_acceptGeneratePayslip);
+	 String expected = login.expectedAssert(2, 0);
+	 Assert.assertEquals(actual, expected, Constant.ms_acceptGeneratePayslip);
 		utilities.alertDismiss(driver);
 
 	}
 
-	@Test(priority = 4,groups="low" ,enabled = true)
+	@Test(enabled = true)
 	public void uploadFileTimesheet() {
 		login = new LoginPage(driver);
 		home = new Homepage(driver);
 		timesheet = new Timesheet(driver);
 		utilities = new GeneralUtilities();
+		cf = new ConfigFileReader();
+		cf.testBasicHandling();
 		login.sendUsername();
 		login.sendPassword();
 		login.logClick();
@@ -83,12 +85,12 @@ public class TimesheetTest extends BaseClass {
 		timesheet.createTimesheet();
 		timesheet.browseFilepath();
 		timesheet.uploadButton();
-		String actual = home.getCreateTimesheetHeading();
-		String expected = "CREATE TIMESHEET";
-		Assert.assertEquals(actual, expected, Constant.ms_acceptGeneratePayslip);
+		 String actual = home.getCreateTimesheetHeading();
+		 String expected = login.expectedAssert(2, 1);
+		 Assert.assertEquals(actual, expected, Constant.ms_acceptGeneratePayslip);
 	}
 
-	@Test(priority = 1,groups="high", enabled = true) // dynamic table
+	@Test(enabled = true) // dynamic table
 	public void pendingTimesheetTableverifying() {
 		login = new LoginPage(driver);
 		home = new Homepage(driver);
@@ -103,18 +105,20 @@ public class TimesheetTest extends BaseClass {
 		boolean expected = true;
 		Assert.assertEquals(actual, expected, Constant.ms_acceptGeneratePayslip);
 	}
-@Test
+
+	@Test
 	public void pdfAttachinDeduction() {
-	login = new LoginPage(driver);
-	home = new Homepage(driver);
-	timesheet = new Timesheet(driver);
-	utilities = new GeneralUtilities();
-	login.sendUsername();
-	login.sendPassword();
-	login.logClick();
-	home.windowHandling();
+		login = new LoginPage(driver);
+		home = new Homepage(driver);
+		timesheet = new Timesheet(driver);
+		utilities = new GeneralUtilities();
+		login.sendUsername();
+		login.sendPassword();
+		login.logClick();
+		home.windowHandling();
 	}
-	@Test(priority = 5,groups="high", enabled = true)
+
+	@Test(enabled = true)
 	public void validatingHighestpaidDeduction() {
 		login = new LoginPage(driver);
 		home = new Homepage(driver);
@@ -129,8 +133,9 @@ public class TimesheetTest extends BaseClass {
 		java.util.List<String> expected = Arrays.asList("Sam");
 		Assert.assertEquals(actual, expected, Constant.ms_acceptGeneratePayslip);
 	}
+
 	@DataProvider(name = "data-provider")
 	public Object[][] dpMethod() {
-		return new Object[][] { { "Sam","115" }, { "~amal_xaviourupd", "112" } };
+		return new Object[][] { { "Sam", "115" }, { "~amal_xaviourupd", "112" } };
 	}
 }

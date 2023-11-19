@@ -10,9 +10,9 @@
     <classes>
       <class name="testCase.CreateclientTest">
         <methods>
-          <include name="afterMethode"/>
           <include name="beforeMethod"/>
-          <include name="updatingFeatures"/>
+          <include name="viewClient"/>
+          <include name="afterMethod"/>
         </methods>
       </class> <!-- testCase.CreateclientTest -->
     </classes>

@@ -3,15 +3,15 @@ package testCase;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import constant.Constant;
 import elementRepository.Homepage;
 import elementRepository.LoginPage;
+import utilities.Retry;
 
 public class LoginPageTest extends BaseClass {
 	LoginPage lp;
 	Homepage hp;
-
+	Retry Retry;
 	@Test(enabled=true)
 	public void loginPage() {
 		lp = new LoginPage(driver);
@@ -20,9 +20,8 @@ public class LoginPageTest extends BaseClass {
 		lp.sendPassword();
 		lp.logClick();
 		String actual = hp.getHomepagetext();
-		String expected = "PAYROLL APPLICATION";
+		String expected = lp.expectedAssert(0, 0);
 		Assert.assertEquals(actual, expected, Constant.ms_verifyValid);
-
 	}
 
 	@Test(dataProvider = "data-provider") 
@@ -33,7 +32,7 @@ public class LoginPageTest extends BaseClass {
 		lp.sendUsername(username, password);
 		lp.logClick();
 		String actual = hp.getHomepagetexts();
-		String expected = "Incorrect username or password.";
+		String expected = lp.expectedAssert(1, 0);
 		Assert.assertEquals(actual, expected, Constant.ms_verifyValid);
 
 	}

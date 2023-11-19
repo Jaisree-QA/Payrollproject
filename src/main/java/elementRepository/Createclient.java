@@ -127,6 +127,10 @@ public class Createclient {
 	public void searchButton() {
 		searchbutton.click();
 	}
+	public boolean searchButtonClickable() {
+		return searchbutton.isEnabled();
+	}
+	
 
 	public void refField() {
 		utilities.selectField("695", refTab);
